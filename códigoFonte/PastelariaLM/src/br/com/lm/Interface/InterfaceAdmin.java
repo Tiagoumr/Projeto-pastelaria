@@ -90,6 +90,7 @@ public class InterfaceAdmin {
 			opcao = menu();
 			switch (opcao) {
 			case 1:
+                GerenciarUsuario();
 				break;
 			case 2:
 				
