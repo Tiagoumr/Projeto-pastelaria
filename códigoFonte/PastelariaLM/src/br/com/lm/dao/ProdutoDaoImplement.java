@@ -1,6 +1,5 @@
 package br.com.lm.dao;
 
-import static br.com.lm.dao.ProdutoDao.produtos;
 import br.com.lm.modelo.Produto;
 import java.util.List;
 
@@ -11,13 +10,19 @@ public class ProdutoDaoImplement implements ProdutoDao {
         public void inicializarProduto(){
             Produto p = new Produto();
             p.setNome("Pastel de Carne");
-            p.setPreco("2,00");
+            p.setPreco(3.00);
             produtos.add(p);
             
-            p = new Produto
+            p = new Produto();
             p.setNome("Pastel de Queijo");
-            p.setPreco("2,00");
+            p.setPreco(4.00);
             produtos.add(p);
+            
+            p = new Produto();
+            p.setNome("Pastel de presunto e Queijo");
+            p.setPreco(5.00);
+            produtos.add(p);
+            
         }
         
 	public Produto produtoDao() {

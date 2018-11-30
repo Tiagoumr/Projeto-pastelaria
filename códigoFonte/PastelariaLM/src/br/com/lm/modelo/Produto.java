@@ -1,4 +1,4 @@
-package Classes.br.com.lm.modelo;
+package br.com.lm.modelo;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ public class Produto {
     private int codigoProduto;
     private String nome;
     private double preco;    
-    private int Qtd;
+    private int qtd;
 
     List<Produto> produtos; //POR QUÊ NÃO DECLARA O MOD DE  ACESSO?
     List<Item> itens;
@@ -37,11 +37,11 @@ public class Produto {
     }
 
     public int getQtd() {
-        return Qtd;
+        return qtd;
     }
 
     public void setQtd(int Qtd) {
-        this.Qtd = Qtd;
+        this.qtd = Qtd;
     }
 
     public List<Produto> getProdutos() {

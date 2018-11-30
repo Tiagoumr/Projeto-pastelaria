@@ -1,4 +1,4 @@
-package Classes.br.com.lm.modelo;
+package br.com.lm.modelo;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ public class Pedido {
 
     private int codigoPedido;
     private int data;
-    private int valorTotal;
+    private double valorTotal;
     private String metodoPgto;
     private TipoPedido tipoPedido;
     private Cliente cliente;

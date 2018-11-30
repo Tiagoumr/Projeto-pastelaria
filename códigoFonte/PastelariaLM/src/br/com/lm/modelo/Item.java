@@ -1,4 +1,4 @@
-package Classes.br.com.lm.modelo;
+package br.com.lm.modelo;
 
 import java.util.List;
 
