@@ -1,19 +1,20 @@
 package br.com.lm.dao;
 
 import br.com.lm.modelo.Produto;
+import java.util.List;
 
 public interface ProdutoDao {
 
-	private List<Produto> produtos;
+        //public List<Produto> produtos;
 
-	public Produto produtoDao();
+        public List<Produto> getProdutos();
+        
+        public Produto criarProduto(String nomeProduto, double precoProduto, int quantidadeProduto);
 
-	public Produto criarProduto();
+	public Produto buscarProduto(String nomeProduto);
 
-	public Produto buscarProduto();
+	public Produto alterarProduto();
 
-	public void alterarProduto();
-
-	public void excluirProduto();
+	public Produto excluirProduto();
 
 }

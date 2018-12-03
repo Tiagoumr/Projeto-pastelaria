@@ -12,12 +12,12 @@ public class Produto {
     
     private List<Item> itens = new ArrayList();
 
-    public Produto(String nome, double preco, int quantidade) {
+    public Produto(String nome, double preco) {
         this.nome = nome;
         this.preco = preco;
-        this.quantidade = quantidade;
     }
-           
+
+            
     public int getCodigoProduto() {
         return codigoProduto;
     }

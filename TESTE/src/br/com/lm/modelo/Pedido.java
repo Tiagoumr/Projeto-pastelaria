@@ -8,9 +8,17 @@ public class Pedido {
     private int data;
     private double valorTotal;
     private String metodoPgto;
-    private TipoPedido tipoPedido;
+    private String tipoPedido;
     private Cliente cliente;
     private List<Produto> produtos;
+
+    public Pedido(int data, String metodoPgto, String tipoPedido, List<Produto> produtos) {
+        this.data = data;
+        this.metodoPgto = metodoPgto;
+        this.tipoPedido = tipoPedido;
+        this.produtos = produtos;
+        
+    }
 
     public void addProduto(Produto p, int quantidade) {        
         p.setQuantidade(quantidade);
@@ -81,4 +89,8 @@ public class Pedido {
         this.cliente = cliente;
     }
 
+    @Override
+    public String toString() {
+        return "Pedido{" + "codigoPedido=" + codigoPedido + ", data=" + data + ", valorTotal=" + valorTotal + ", metodoPgto=" + metodoPgto + ", tipoPedido=" + tipoPedido + ", cliente=" + cliente + ", produtos=" + produtos + '}';
+    }       
 }

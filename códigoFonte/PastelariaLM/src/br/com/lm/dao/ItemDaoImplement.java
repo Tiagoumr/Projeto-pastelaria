@@ -1,29 +1,29 @@
 package br.com.lm.dao;
 import br.com.lm.modelo.Item;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ItemDaoImplement implements ItemDao {
     
-    @Override
-    public void alimentarItem(){
-        List<Item> itens;
+    private List<Item> itensList = new ArrayList<>();
     
+    @Override
+    public Item alimentarItem(){
+         
         Item p = new Item();
         p.setNome("Carne");      
         p.setQtdMin(10);
-        itens.add(p);
+        itensList.add(p);
       
 
         p = new Item();
         p.setNome("Queijo");
         p.setQtdMin(20);
-        itens.add(p);
+        itensList.add(p);
+        return null;
+    }
 	
-        public Item criarItem() {
-            return null;
-	}
-
-    @Override
+     @Override
     public Item buscarItem() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -37,33 +37,25 @@ public class ItemDaoImplement implements ItemDao {
     public void excluirItem() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public Item criarItem() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-	/**
-	 * @see Classes.br.com.lm.dao.ItemDao#buscarItem()
-	 * 
-	 *  
-	 */
-	public Item buscarItem() {
-		return null;
-	}
+    /**
+     *
+     * @param itensList
+     */
+    public void setItensFinal(List<Item> itensList) {
+        this.itensList = itensList;
+    }
 
+    @Override
+    public List<Item> getItens() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+ 
 
-	/**
-	 * @see Classes.br.com.lm.dao.ItemDao#alterarItem()
-	 */
-	public void alterarItem() {
-
-	}
-
-
-	/**
-	 * @see Classes.br.com.lm.dao.ItemDao#excluirItem()
-	 * 
-	 *  
-	 */
-	public void excluirItem() {
-
-	}
 
 }

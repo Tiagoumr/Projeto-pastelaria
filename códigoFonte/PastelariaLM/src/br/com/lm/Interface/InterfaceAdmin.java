@@ -26,10 +26,10 @@ public class InterfaceAdmin {
         System.out.println("2. Listar ");
         System.out.println("3. Alterar");
         System.out.println("4. Exlcuir");       
-		return scanner.nextInt();
+	return scanner.nextInt();
     } */
     
-	public int gerenciarProduto() {            
+	public int menuGerenciarProduto() {            
         System.out.println("MENU GERENCIAR PRODUTO");
         System.out.println("");
         System.out.println("1. Cadastrar Produto"); //Não implementado
@@ -39,13 +39,14 @@ public class InterfaceAdmin {
 		return scanner.nextInt();
     }    
     
-    public int gerenciarEstoque() {            
+    public int menuGerenciarEstoque() {            
         System.out.println("MENU GERENCIAR ESTOQUE");
         System.out.println("");
         System.out.println("1. Cadastrar Item"); //Não implementado
         System.out.println("2. Listar ");   
         System.out.println("3. Alterar");   
         System.out.println("4. Exlcuir");   //Não implementado
+        System.out.println("Digite a opção: ");
 		return scanner.nextInt();
     }
     
@@ -63,16 +64,6 @@ public class InterfaceAdmin {
 
 //======= IMPLEMENTAÇÃO ======= IMPLEMENTAÇÃO ======= IMPLEMENTAÇÃO 
     
-    public void ListarProduto() {
-        System.out.println("Produtos disponíveis: ");
-        System.out.println("");
-        
-	}
-
-	public void gerenciarEstoque() {
-
-	}
-
 	public void gerenciarUsuarios() {
 
 	}
@@ -81,26 +72,75 @@ public class InterfaceAdmin {
 
 	}
 
-}
+   
+	
+    public void menuAdmin() {
+        int opcao;
+
+        do {
+            opcao = menu();
+            switch (opcao) {
+                case 1:
+                    //gerenciarUsuarios();
+                    break;
+                case 2:
+                    menuGerenciarProduto();
+                    break;
+                case 3:
+                    menuEstoque();
+                    break;
+                case 4:
+                    //gerarRelatorio();
+                    break;
+            }
+        } while (opcao != 0);
+    }
+    
+    public void menuEstoque() {
+        int opcao2;
+
+        do {
+            opcao2 = menuGerenciarEstoque();
+            switch (opcao2) {
+                case 1:
+                    cadastrarItem();
+                    break;
+                case 2:
+                    listarProduto();
+                    break;
+                case 3:
+                    alterarItem();
+                    break;
+                case 4:
+                    excluirItem();
+                    break;
+            }
+        } while (opcao2 != 0);
+    }
+
 
     
-	
-		int opcao;
-		do {
-			opcao = menu();
-			switch (opcao) {
-			case 1:
-                GerenciarUsuario();
-				break;
-			case 2:
-				
-				break;
-			case 3:
-				
-				break;
-			}
-		} while (opcao != 0);
-	}
+    public void listarProduto() {
+        System.out.println("Produtos disponíveis: ");
+        System.out.println("");
+        
+    }
+
+    private void cadastrarItem() {
+        System.out.println("\n");
+        System.out.println("Informe o nome do item: ");
+        String nomeItem = scanner.next();
+        
+    }
+
+    private void alterarItem() {
+        System.out.println("Versão ainda não suportada");
+    }
+
+    private void excluirItem() {
+        System.out.println("\nVersão ainda não suportada");
+    }
+}
           
     
 	

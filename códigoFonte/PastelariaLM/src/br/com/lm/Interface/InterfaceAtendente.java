@@ -46,7 +46,7 @@ public class InterfaceAtendente {
         System.out.println("2. Encomenda");
         System.out.println("3. Balcão");
         
-        opcao scanner.nextInt();
+        //opcao scanner.nextInt();
 	}
 
 	public void gerenciarPedido() {

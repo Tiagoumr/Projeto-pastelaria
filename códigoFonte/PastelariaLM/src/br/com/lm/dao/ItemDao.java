@@ -1,12 +1,15 @@
 package br.com.lm.dao;
 
-import Classes.br.com.lm.modelo.Item;
+import br.com.lm.modelo.Item;
+import java.util.List;
 
 public interface ItemDao {
-
+        
+        public List<Item> getItens();
+        
 	public Item alimentarItem ();
 
-    public Item criarItem();
+        public Item criarItem();
 
 	public Item buscarItem();
 

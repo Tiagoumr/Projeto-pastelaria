@@ -9,7 +9,7 @@ public class PastelariaLM {
         
     public static void main(String[] args) {
         InterfaceTexto interfaceTexto = new InterfaceTexto();
-        interfaceTexto.iniciar();  
+        interfaceTexto.iniciar();
     }   
 }
      

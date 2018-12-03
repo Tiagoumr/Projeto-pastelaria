@@ -4,6 +4,7 @@ public class Item {
 
 	private int codigoItem;
         private String nome;
+        
 	private double qtdMin;
 	private double saldo;
         private double porcao;
@@ -49,6 +50,11 @@ public class Item {
 
     public void setSaldo(double saldo) {
         this.saldo = saldo;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" + "codigoItem=" + codigoItem + ", nome=" + nome + ", qtdMin=" + qtdMin + ", saldo=" + saldo + ", porcao=" + porcao + '}';
     }
         
 }
