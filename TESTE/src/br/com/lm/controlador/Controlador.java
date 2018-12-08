@@ -76,6 +76,10 @@ public class Controlador {
     public ProdutoDao getProdutoDao() {
         return produtoDao;
     }
+    
+    public List<Produto> buscarProdutos(){
+        return produtoDao.getProdutos();
+    }
 //=============================================
 
 //ESTOQUE (ITEM) ============================== 
@@ -143,10 +147,15 @@ public class Controlador {
     public PedidoDao getPedidoDao() {
         return pedidoDao;
     }
-        
-        public void Produto (Produto p) {                     
-             this.pedidoDao.getProdutos().add(p);                
+    
+    public void mostarProdutos() {
+        pedidoDao.mostarProdutos();
     }
+        
+//        public List<Produto> adicionaProdutoPedido (Produto p) {                     
+//             this.pedidoDao.getProdutos().add(p);  
+//             return this.pedidoDao.getProdutos();
+//    }
 //=================================================   
   
           

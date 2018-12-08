@@ -13,5 +13,9 @@ public interface PedidoDao {
    
     public Pedido criarPedido();
     
-    public Pedido incluirProduto(Pedido pd, Produto p);   
+    public Pedido incluirProduto(Pedido pd, Produto p);  
+    
+    public void mostarProdutos();
+    
+
 }
