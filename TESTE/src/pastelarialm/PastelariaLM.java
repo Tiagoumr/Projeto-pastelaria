@@ -22,6 +22,7 @@ public class PastelariaLM {
 //        System.out.println(produto.getProdutos().toString());
         
 //        TipoPedido();
+        oi;
         InterfaceTexto interfaceTexto = new InterfaceTexto();
         interfaceTexto.iniciar();
     }   
