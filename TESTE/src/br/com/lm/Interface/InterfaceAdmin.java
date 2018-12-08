@@ -16,12 +16,16 @@ public class InterfaceAdmin {
 
 //========== MENUS ========== MENUS ========== MENUS ========== MENUS
     public int menu() {
+        System.out.println("");        
+        System.out.println("-=-=-=-=-MENU ADMINISTRADOR-=-=-=-=-");
+        System.out.println("");
         System.out.println("0. Sair");
         System.out.println("1. Gerenciar usuário"); //Não implementado
         System.out.println("2. Gerenciar produto");
         System.out.println("3. Gerenciar estoque");
-        System.out.println("4. Gerar Relatório");  //Não implementado 
-        System.out.print("Digite a opcao: ");
+        System.out.println("4. Gerar Relatório");  //Não implementado         
+        System.out.println("");        
+        System.out.print("Digite a opção: ");
         return scanner.nextInt();              
     }
     
@@ -35,25 +39,31 @@ public class InterfaceAdmin {
 	return scanner.nextInt();
     } */
     
-	public int menuGerenciarProduto() {            
-        System.out.println("MENU GERENCIAR PRODUTO");
+    public int menuGerenciarProduto() {            
+        System.out.println("");        
+        System.out.println("-=-=-=-MENU GERENCIAR PRODUTO-=-=-=-");
         System.out.println("");
+        System.out.println("0. Sair");
         System.out.println("1. Cadastrar Produto");
         System.out.println("2. Listar ");   //Não implementado
         System.out.println("3. Alterar");   //Não implementado
         System.out.println("4. Excluir");   //Não implementado    
-		return scanner.nextInt();
-    }    
+        System.out.println("");
+        System.out.print("Digite a opção: ");
+        return scanner.nextInt();
+    }        
     
     public int menuGerenciarEstoque() {            
         System.out.println("MENU GERENCIAR ESTOQUE");
         System.out.println("");
+        System.out.println("0. Sair");
         System.out.println("1. GERAR NOTA DE COMPRA");
-        System.out.println("2. MOSTRAR ESTOQUE ");   
+        System.out.println("2. MOSTRAR ESTOQUE ");          
 //        System.out.println("3. Alterar");   
 //        System.out.println("4. Exlcuir");   //Não implementado
-        System.out.println("Digite a opção: ");
-		return scanner.nextInt();
+        System.out.println("");
+        System.out.print("Digite a opção: ");
+        return scanner.nextInt();
     }
     
 /*  public int gerarRelatório() {            
@@ -80,10 +90,11 @@ public class InterfaceAdmin {
             opcao = menuGerenciarProduto();
             switch (opcao){
                 case 1:
-                    System.out.println("CADASTRAR NOVO PRODUTO" );
+                    System.out.println("");
+                    System.out.println("-=-=-=-CADASTRAR NOVO PRODUTO-=-=-=-" );
                     System.out.print("Nome do produto: " );
                     nome = scanner.next();                    
-                    System.out.println("Preço " );
+                    System.out.print("Preço: " );
                     preco = scanner.nextDouble();
 //                    System.out.println("Quais itens o produto vai ter?");
 //                    System.out.println(controlador.listarItens());                    
@@ -103,12 +114,16 @@ public class InterfaceAdmin {
 ////                    System.out.println(i.toString());
 //                }while (opcao2.equals("Fim"));   
                     
-                    controlador.cadastrarProduto(nome, preco);
-                    System.out.println("Produto cadastrado!");
-                    break;
+                    String out = controlador.cadastrarProduto(nome, preco);
+                    System.out.println("");
+                    System.out.println(out);
+                    System.out.println("cadastrado com sucesso.");
+                    System.out.println("");
+                    System.out.println("Retornando ao Menu Gerenciar Produto...");
+                    break;                    
                 case 2:
                     
-                    controlador.listarProduto();
+                    controlador.listarProdutos();
                     //produtodao
                     break;
                 case 3:

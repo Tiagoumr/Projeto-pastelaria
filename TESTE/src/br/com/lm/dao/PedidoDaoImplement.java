@@ -40,10 +40,9 @@ public class PedidoDaoImplement implements PedidoDao {
 //        }
 
     @Override
-    public Pedido incluirProduto(Pedido pd, Produto p) {        
-        System.out.println(pd.toString()); //teste
+    public Pedido incluirProduto(Pedido pd, Produto p) {                
         pd.getProdutos().add(p);
-        System.out.println(pd.toString()); //teste
+        produtos.add(p);
         return pd;
     }    
 }

@@ -41,12 +41,10 @@ public class Controlador {
 
 //PRODUTO======================================
     
-    public void cadastrarProduto(String nome, double preco){            
+    public String cadastrarProduto(String nome, double preco){            
        Produto p = produtoDao.criarProduto(nome, preco);       
        produtoDao.adicionarProduto(p);
-       
-       //varificação
-       System.out.println(produtoDao.getProdutos().toString());
+       return p.toString();       
     }     
 
 //    public List<Item> adicionarItem(Item p) {    
@@ -57,9 +55,22 @@ public class Controlador {
         return produtoDao.buscarProduto(nome);        
     }    
     
-    public void listarProduto(){
+    public List<Produto> getProdutos(){
+        return produtoDao.getProdutos();
+    }
+    
+    public void listarProdutos(){
 //        produtoDao.inicializarProduto();
-        System.out.println(produtoDao.getProdutos().toString());
+        for (Produto p: getProdutos()){
+            System.out.println(p.toString());
+        }           
+//        System.out.println(produtoDao.getProdutos().toString());
+    }
+    
+    public void listarNomeProdutos(){
+        for (Produto p: getProdutos()){
+            System.out.println(p.getNome());
+        }
     }
 
     public ProdutoDao getProdutoDao() {
