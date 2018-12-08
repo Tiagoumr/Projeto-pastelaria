@@ -70,12 +70,16 @@ public class InterfaceAtendente {
                     break;
                 case 3:                     
                     while (opcao != 0) {
-                        System.out.println("escolha o produto ou digite: ");
-                        nome = scanner.next();
+                        System.out.print("escolha o produto: ");
+                        nome = scanner.next();                        
                         Produto p = controlador.buscarProduto(nome);
-//                        System.out.println(p.toString() + "Quantidade: ");
+                        p = new Produto(p);
+//                        p.setNome("teste");
+//                        controlador.listarProduto(); //teste
+//                        System.out.println("p.toString " + p.toString()); //teste
+                        System.out.print("Quantidade: ");
                         int quantidade = scanner.nextInt();
-                        controlador.incluirProduto(pd, p, quantidade);
+                        pd = controlador.incluirProduto(pd, p, quantidade);
 //                      controlador.adicionarProduto(p);
                         System.out.println("0. Fechar");
                         System.out.println("1. Adicionar produto");

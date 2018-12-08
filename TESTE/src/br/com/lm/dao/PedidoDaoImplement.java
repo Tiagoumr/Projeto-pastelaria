@@ -7,13 +7,13 @@ import java.util.List;
 
 public class PedidoDaoImplement implements PedidoDao {
     
-    private List<Pedido> pedidos = new ArrayList<>();
+//    private List<Pedido> pedidos = new ArrayList<>();
     private List<Produto> produtos = new ArrayList<>();
 
-    @Override
-    public List<Pedido> getPedidos() {
-        return pedidos;
-    }
+//    @Override
+//    public List<Pedido> getPedidos() {
+//        return pedidos;
+//    }
 
     @Override
     public List<Produto> getProdutos() {
@@ -27,13 +27,12 @@ public class PedidoDaoImplement implements PedidoDao {
 //	}
     
     @Override
-    public Pedido criarPedido(){
+    public Pedido criarPedido(){        
         Pedido pedido = new Pedido();
         return pedido;
     }
     
-    
-    
+        
 //        @Override
 //    public List<Produto> pesquisarPorNome(String nome) {
 //        //Produto produto = controlador.BuscarProduto(nome);
@@ -41,12 +40,10 @@ public class PedidoDaoImplement implements PedidoDao {
 //        }
 
     @Override
-    public Pedido incluirProduto(Pedido pd, Produto p) {
+    public Pedido incluirProduto(Pedido pd, Produto p) {        
+        System.out.println(pd.toString()); //teste
         pd.getProdutos().add(p);
+        System.out.println(pd.toString()); //teste
         return pd;
-    }
-    
-
-    
-
+    }    
 }

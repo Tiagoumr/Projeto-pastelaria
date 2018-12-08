@@ -11,7 +11,7 @@ public interface ProdutoDao {
         
     public List<Item> adicionarItem(Item p);  
     
-    public Produto inicializarProduto();
+    public void inicializarProduto();
         
     public Produto criarProduto(String nome, double preco);    
     public void adicionarProduto(Produto p);

@@ -8,13 +8,13 @@ import java.util.Scanner;
 
 public class InterfaceTexto {
 
-    Controlador controlador = new Controlador();
+    final Controlador controlador = new Controlador();
     Scanner scanner = new Scanner(System.in);
     private String nomeProduto;
     private double precoProduto;    
     private int quantidadeProduto;
-    InterfaceAdmin interfaceAdmin = new InterfaceAdmin();
-    InterfaceAtendente interfaceAtendente = new InterfaceAtendente();
+    final InterfaceAdmin interfaceAdmin = new InterfaceAdmin();
+    final InterfaceAtendente interfaceAtendente = new InterfaceAtendente();
    
     public int menuUsuario() {
         System.out.println("SISTEMA LM V1 - 2018");

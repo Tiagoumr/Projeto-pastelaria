@@ -17,7 +17,7 @@ public class Controlador {
 
     private final PedidoDao pedidoDao = new PedidoDaoImplement();
     private final ProdutoDao produtoDao = new ProdutoDaoImplement();
-    private final ItemDao itemDao = new ItemDaoImplement();
+//    private final ItemDao itemDao = new ItemDaoImplement();
        
    // private Produto produto;
    // private Item item;
@@ -58,8 +58,8 @@ public class Controlador {
     }    
     
     public void listarProduto(){
-        produtoDao.inicializarProduto();
-        System.out.println(produtoDao.getProdutos());
+//        produtoDao.inicializarProduto();
+        System.out.println(produtoDao.getProdutos().toString());
     }
 
     public ProdutoDao getProdutoDao() {
@@ -102,20 +102,19 @@ public class Controlador {
 //        return pedidoDao.criarPedido(data, metodoPgto, tipoPedido, list);
 //    }
     
-    public Pedido criarPedido(){
-     return pedidoDao.criarPedido();   
+    public Pedido criarPedido(){        
+        return pedidoDao.criarPedido();   
     }
     
     public Pedido incluirProduto(Pedido pd, Produto p, int quantidade) {
         p.setQuantidade(quantidade);
-//        p.setNome("teste");
         pd = pedidoDao.incluirProduto(pd, p);
         return pd;
     }
     
     public Pedido fecharPedido(Pedido pd, int data, String metodoPgto, String tipoPedido) {        
         double valorTotal = 0;
-        for (Produto produtos: pedidoDao.getProdutos()){
+        for (Produto produtos: pd.getProdutos()){
             valorTotal = valorTotal + produtos.getQuantidade() * produtos.getPreco();
         }
         pd.setData(data);

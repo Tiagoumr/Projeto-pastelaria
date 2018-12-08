@@ -7,27 +7,32 @@ import java.util.List;
 
 public class ProdutoDaoImplement implements ProdutoDao {
 
-    private List<Produto> produtos = new ArrayList<>();
-    private List<Item> itens = new ArrayList<>();
+    private static List<Produto> produtos = new ArrayList<>();
+    private final List<Item> itens = new ArrayList<>();
     
     @Override
-    public Produto inicializarProduto(){
-            Produto p = new Produto("Carne", 3.00);
-            p.setNome("Carne");
-            p.setPreco(3.00);            
-            produtos.add(p);
-            
-            p = new Produto("Pastel de Queijo", 4.00);
-            p.setNome("Pastel de Queijo");
-            p.setPreco(4.00);
-            produtos.add(p);
-            
-            p = new Produto("Pastel de presunto e Queijo", 5.00);
-            p.setNome("Pastel de presunto e Queijo");
-            p.setPreco(5.00);
-            produtos.add(p);
-            System.out.println(this);
-            return null;
+    public void inicializarProduto(){
+        Produto p = criarProduto("Carne", 3.00);
+        adicionarProduto(p);
+//            Produto p = new Produto("Carne", 3.00);
+//            p.setNome("Carne");
+//            p.setPreco(3.00);            
+//            this.produtos.add(p);
+        
+        p = criarProduto("Queijo", 4.00);
+        adicionarProduto(p);
+//            p = new Produto("Pastel de Queijo", 4.00);
+//            p.setNome("Pastel de Queijo");
+//            p.setPreco(4.00);
+//            this.produtos.add(p);
+        
+        p = criarProduto("PresuntoQueijo", 5.00);
+        adicionarProduto(p);    
+//            p = new Produto("Pastel de presunto e Queijo", 5.00);
+//            p.setNome("Pastel de presunto e Queijo");
+//            p.setPreco(5.00);
+//            this.produtos.add(p);
+//            System.out.println(this);            
         } 
 
     @Override
@@ -38,20 +43,18 @@ public class ProdutoDaoImplement implements ProdutoDao {
    
     @Override
     public void adicionarProduto(Produto p){
-        this.produtos.add(p);
+        ProdutoDaoImplement.produtos.add(p);
     }
      @Override
     public Produto buscarProduto(String nome) {
         //for(int i = 0 ; i < produtos.size(); i++){
         //    System.out.println(produtos.get(i).toString());            
-        //}        
-         
-
-        for (Produto p : produtos) {
-            System.out.println(p.toString());
+        //}                
+        
+        for (Produto p : produtos) {            
             if (p.getNome().equals(nome)) {                
                 return p;
-            }                           
+            }
         }
         return null;
     }

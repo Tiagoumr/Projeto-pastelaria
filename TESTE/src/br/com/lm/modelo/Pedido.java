@@ -1,5 +1,6 @@
 package br.com.lm.modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Pedido {
@@ -10,7 +11,7 @@ public class Pedido {
     private String metodoPgto;
     private String tipoPedido;
     private Cliente cliente;
-    private List<Produto> produtos;
+    private List<Produto> produtos = new ArrayList<>();
      
     public List<Produto> getProdutos() {
         return produtos;

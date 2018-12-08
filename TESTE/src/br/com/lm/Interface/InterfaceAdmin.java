@@ -48,10 +48,10 @@ public class InterfaceAdmin {
     public int menuGerenciarEstoque() {            
         System.out.println("MENU GERENCIAR ESTOQUE");
         System.out.println("");
-        System.out.println("1. Cadastrar Item"); //Não implementado
-        System.out.println("2. Listar ");   
-        System.out.println("3. Alterar");   
-        System.out.println("4. Exlcuir");   //Não implementado
+        System.out.println("1. GERAR NOTA DE COMPRA");
+        System.out.println("2. MOSTRAR ESTOQUE ");   
+//        System.out.println("3. Alterar");   
+//        System.out.println("4. Exlcuir");   //Não implementado
         System.out.println("Digite a opção: ");
 		return scanner.nextInt();
     }
