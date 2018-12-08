@@ -22,15 +22,9 @@ public class PastelariaLM {
 //        System.out.println(produto.getProdutos().toString());
         
 //        TipoPedido();
-        oi;
-        testeteste;
-        TIAGOteste
         InterfaceTexto interfaceTexto = new InterfaceTexto();
         interfaceTexto.iniciar();
     }   
-    dasdsa
-    d
-    asd
-    sad
+
 }
      
