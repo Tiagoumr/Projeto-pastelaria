@@ -13,8 +13,9 @@ public interface ProdutoDao {
     
     public Produto inicializarProduto();
         
-    public Produto criarProduto(String nome, double preco);
-
+    public Produto criarProduto(String nome, double preco);    
+    public void adicionarProduto(Produto p);
+    
 	public Produto buscarProduto(String nome);
 
 //	public Produto alterarProduto();

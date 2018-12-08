@@ -7,8 +7,8 @@ import java.util.List;
 
 public class ProdutoDaoImplement implements ProdutoDao {
 
-    private List<Produto> produtos = new ArrayList<>();
-    private List<Item> itens = new ArrayList<>();
+    private final List<Produto> produtos = new ArrayList<>();
+    private final List<Item> itens = new ArrayList<>();
     
     @Override
     public Produto inicializarProduto(){
@@ -42,17 +42,17 @@ public class ProdutoDaoImplement implements ProdutoDao {
     }
      @Override
     public Produto buscarProduto(String nome) {
-        //for(int i = 0 ; i < produtos.size(); i++){
-        //    System.out.println(produtos.get(i).toString());            
-        //}        
+        for(int i = 0 ; i < produtos.size(); i++){
+            System.out.println(produtos.get(i).toString());            
+        }        
          
 
-        for (Produto p : produtos) {
-            System.out.println(p.toString());
-            if (p.getNome().equals(nome)) {                
-                return p;
-            }                           
-        }
+//        for (Produto p : produtos) {
+//            System.out.println(p.toString());
+//            if (p.getNome().equals(nome)) {                
+//                return p;
+//            }                           
+//        }
         return null;
     }
     

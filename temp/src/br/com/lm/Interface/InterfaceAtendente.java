@@ -1,13 +1,11 @@
 package br.com.lm.Interface;
 
 import br.com.lm.controlador.Controlador;
-
 import br.com.lm.modelo.Pedido;
 import br.com.lm.modelo.Produto;
 import br.com.lm.modelo.TipoPedido;
 import java.util.List;
 import java.util.Scanner;
-
 
 public class InterfaceAtendente {
     
@@ -50,51 +48,71 @@ public class InterfaceAtendente {
 //======= IMPLEMENTAÇÃO ======= IMPLEMENTAÇÃO ======= IMPLEMENTAÇÃO 
 
       
-	public void novoPedido (){                      
-        System.out.println("" );                
-        System.out.println("Selecione o Tipo de Pedido: ");        
-        System.out.println("1. " + TipoPedido.DELIVERY);
-        System.out.println("2. " + TipoPedido.ENCOMENDA);
-        System.out.println("3. " + TipoPedido.BALCAO);
+    public void novoPedido() {
+        System.out.println("");
+        System.out.println("Selecione o Tipo de Pedido: ");
+        System.out.println("1. " + TipoPedido.DELIVERY.getDescricao());
+        System.out.println("2. " + TipoPedido.ENCOMENDA.getDescricao());
+        System.out.println("3. " + TipoPedido.BALCAO.getDescricao());
         int opcao;
         opcao = scanner.nextInt();
 
-//        Pedido pd = new Pedido();        
-        Pedido pd = controlador.criarPedido();
-        
         do {
-           switch (opcao) {
-                case 1:                    
+            switch (opcao) {
+                case 1:
                     break;
                 case 2:
                     break;
-                case 3:                     
+                case 3:
+                    System.out.println("'--- NOVO PEDIDO BALCÃO ---'");
+                    String tipoPedido = TipoPedido.BALCAO.getDescricao();
+                    Pedido pd = controlador.getPedidoDao().criarPedido(tipoPedido);
                     while (opcao != 0) {
-                        System.out.println("escolha o produto ou digite: ");
+                        System.out.println("escolha o produto: ");
                         nome = scanner.next();
-                        Produto p = controlador.buscarProduto(nome);
-//                        System.out.println(p.toString() + "Quantidade: ");
-                        int quantidade = scanner.nextInt();
-                        controlador.incluirProduto(pd, p, quantidade);
-//                      controlador.adicionarProduto(p);
-                        System.out.println("0. Fechar");
-                        System.out.println("1. Adicionar produto");
+//                            Produto p = controlador.buscarProduto(nome);
+//                            System.out.println(p.toString());
+//                          int quantidade = scanner.nextInt();
+                        controlador.incluirProduto(controlador.buscarProduto(nome));
+//                          controlador.adicionarProduto(p);
+                        System.out.println("");
+                        System.out.println("Produto adicionado com sucesso!");
+                        System.out.println("");
+                        System.out.println("'--------PEDIDO BALCÃO Nº" + /*controlador.getPedidoDao().toString()*/ pd.getCodigoPedido() + "--------'");
+//                            for (int i = 0; i < controlador.getPedidoDao().getProdutos().size(); i++) {
+//                            for (Produto p : controlador.getPedidoDao().getProdutos()) {
+//                        for (List<Produto> produtos : pd.getProdutos()) {
+                            for (Produto p : pd.getProdutos()) {
+                                System.out.println("|  " + p.getNome() + "                 |");
+                            }
+                        
+                        System.out.println("Deseja adicionar mais produtos?");
+                        System.out.println("0. Não");
+                        System.out.println("1. Sim");
                         opcao = scanner.nextInt();
-                    }                    
-                    
-                    System.out.println("Informe a data");
+                    }
+
+    System.out.println (
+    "Informe a data");
                     int data = scanner.nextInt();
-                    System.out.println("Método de pagamento:  ");
+
+    System.out.println (
+    "Método de pagamento:  ");
                     String metodoPgto = scanner.next();
-                    String tipoPedido = ("Balcão");
-                    
-                    pd = controlador.fecharPedido(pd, data, metodoPgto, tipoPedido);
-                    System.out.println(controlador.imprimirPedido(pd));
+    String tipoPedido = ("Balcão");
+
+    pd  = controlador.fecharPedido(pd, data, metodoPgto, tipoPedido);
+
+    System.out.println (controlador.imprimirPedido
+
+    (pd));
 //                    List<Produto> list = controlador.getPedidoDao().getProdutos();
 //                    Pedido pd = controlador.criarPedido(data, metodoPgto, tipoPedido, list);                            
                             
-                    System.out.println("TESTE" + controlador.getPedidoDao().getProdutos().toString());
-                    break;                         
+    System.out.println (
+    "TESTE" + controlador.getPedidoDao().getProdutos().toString());
+
+break;                         
             }
         }   while (opcao !=0);   
     }
@@ -111,14 +129,13 @@ public class InterfaceAtendente {
                     novoPedido();
                     break;
                 case 2:
-                    //listarPedido();
-                    //listarProduto();
+                    listarPedido();
                     break;
                 case 3:
-                    //AlterarPedido();
+                    AlterarPedido();
                     break;                         
                 case 4: 
-                    //ExcluirPedido();                    
+                    ExcluirPedido();                    
             }
         }   while (opcao !=0);   
     }	
@@ -129,7 +146,7 @@ public class InterfaceAtendente {
             opcao = menu();
             switch (opcao) {
                 case 1:
-                   // gerenciarCliente();
+                    gerenciarCliente();
                     break;
                 case 2:
                     gerenciarPedido();

@@ -11,6 +11,10 @@ public class Pedido {
     private String tipoPedido;
     private Cliente cliente;
     private List<Produto> produtos;
+
+    public Pedido(String tipoPedido) {
+        this.tipoPedido = tipoPedido;
+    }
      
     public List<Produto> getProdutos() {
         return produtos;

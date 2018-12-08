@@ -107,15 +107,13 @@ public class InterfaceAdmin {
                     System.out.println("Produto cadastrado!");
                     break;
                 case 2:
-                    
                     controlador.listarProduto();
-                    //produtodao
                     break;
                 case 3:
-                    //controlador.alterarProduto();
+                    controlador.alterarProduto();
                     break;
                 case 4:
-                    //controlador.excluirProduto();
+                    controlador.excluirProduto();
                     break;
             }
         } while (opcao != 0);   
@@ -127,16 +125,16 @@ public class InterfaceAdmin {
             opcao2 = menuGerenciarEstoque();
             switch (opcao2){
                 case 1:
-                    //controlador.cadastrarItem();
+                    controlador.cadastrarItem();
                     break;
                 case 2:
-                    //controlador.listarItens();
+                    controlador.listarItens();
                     break;
                 case 3:
-                    //controlador.alterarItem();
+                    controlador.alterarItem();
                     break;
                 case 4:
-                    //controlador.excluirItem();
+                    controlador.excluirItem();
                     break;
             }
         } while (opcao2 != 0);

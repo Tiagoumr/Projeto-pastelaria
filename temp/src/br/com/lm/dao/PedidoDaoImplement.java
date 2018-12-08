@@ -7,9 +7,12 @@ import java.util.List;
 
 public class PedidoDaoImplement implements PedidoDao {
     
-    private List<Pedido> pedidos = new ArrayList<>();
-    private List<Produto> produtos = new ArrayList<>();
+    int codigoPedido = 0;
+    
+    public List<Pedido> pedidos = new ArrayList<>();
+    public List<Produto> produtos = new ArrayList<>();
 
+    
     @Override
     public List<Pedido> getPedidos() {
         return pedidos;
@@ -27,8 +30,9 @@ public class PedidoDaoImplement implements PedidoDao {
 //	}
     
     @Override
-    public Pedido criarPedido(){
-        Pedido pedido = new Pedido();
+    public Pedido criarPedido(String tipoPedido){
+        codigoPedido++;
+        Pedido pedido = new Pedido(tipoPedido);
         return pedido;
     }
     
