@@ -23,6 +23,7 @@ public class PastelariaLM {
         
 //        TipoPedido();
         oi;
+        testeteste;
         InterfaceTexto interfaceTexto = new InterfaceTexto();
         interfaceTexto.iniciar();
     }   
