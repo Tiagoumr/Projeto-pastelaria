@@ -7,27 +7,27 @@ import java.util.List;
 
 public class ProdutoDaoImplement implements ProdutoDao {
 
-    int codigoProduto = 1;
+    private static int codigoProduto = 1;
     private static List<Produto> produtos = new ArrayList<>();
     private final List<Item> itens = new ArrayList<>();
     
     @Override
     public void inicializarProduto(){
-        Produto p = criarProduto("Carne", 3.00);
+        Produto p = criarProduto("Carne", 3.00, 100);
         adicionarProduto(p);
 //            Produto p = new Produto("Carne", 3.00);
 //            p.setNome("Carne");
 //            p.setPreco(3.00);            
 //            this.produtos.add(p);
         
-        p = criarProduto("Queijo", 4.00);
+        p = criarProduto("Queijo", 4.00, 100);
         adicionarProduto(p);
 //            p = new Produto("Pastel de Queijo", 4.00);
 //            p.setNome("Pastel de Queijo");
 //            p.setPreco(4.00);
 //            this.produtos.add(p);
         
-        p = criarProduto("PresuntoQueijo", 5.00);
+        p = criarProduto("PresuntoQueijo", 5.00, 50);
         adicionarProduto(p);    
 //            p = new Produto("Pastel de presunto e Queijo", 5.00);
 //            p.setNome("Pastel de presunto e Queijo");
@@ -37,8 +37,8 @@ public class ProdutoDaoImplement implements ProdutoDao {
         } 
 
     @Override
-    public Produto criarProduto(String nome, double preco) {          
-        Produto p = new Produto(nome, preco);
+    public Produto criarProduto(String nome, double preco, int estoque) {          
+        Produto p = new Produto(nome, preco, estoque);
         p.setCodigoProduto(codigoProduto);
         codigoProduto++;
         return p;        
@@ -65,6 +65,11 @@ public class ProdutoDaoImplement implements ProdutoDao {
     @Override
     public List<Produto> getProdutos() {
         return produtos;
+    }
+    
+    @Override
+    public void setEstoque(int pos, int estoque){
+        produtos.get(pos).setEstoque(estoque);
     }
     
     @Override

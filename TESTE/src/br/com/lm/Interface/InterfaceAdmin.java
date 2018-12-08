@@ -7,12 +7,14 @@ import java.util.Scanner;
 
 
 public class InterfaceAdmin {
+   
 
     Scanner scanner = new Scanner(System.in);
     Controlador controlador = new Controlador();
        
     private String nome;
     private double preco;
+    private int estoque;
     private List<Item> i;    
 
 //========== MENUS ========== MENUS ========== MENUS ========== MENUS
@@ -82,9 +84,9 @@ public class InterfaceAdmin {
 
 //======= IMPLEMENTAÇÃO ======= IMPLEMENTAÇÃO ======= IMPLEMENTAÇÃO 
     
-	public void gerenciarUsuarios() {
+    public void gerenciarUsuarios() {
 
-	}
+    }
     
     public void gerenciarProduto(){
         int opcao;
@@ -98,6 +100,9 @@ public class InterfaceAdmin {
                     nome = scanner.next();                    
                     System.out.print("Preço: " );
                     preco = scanner.nextDouble();
+                    System.out.print("Estoque inicial: ");
+                    estoque = scanner.nextInt();
+                    
 //                    System.out.println("Quais itens o produto vai ter?");
 //                    System.out.println(controlador.listarItens());                    
                                                   
@@ -116,10 +121,10 @@ public class InterfaceAdmin {
 ////                    System.out.println(i.toString());
 //                }while (opcao2.equals("Fim"));   
                     
-                    String out = controlador.cadastrarProduto(nome, preco);
+                    String out = controlador.cadastrarProduto(nome, preco, estoque);                    
                     System.out.println("");
                     System.out.println(out);
-                    System.out.println("cadastrado com sucesso.");
+                    System.out.println("cadastrado com sucesso!");
                     System.out.println("");
                     System.out.println("Retornando ao Menu Gerenciar Produto...");
                     break;                    
@@ -163,15 +168,14 @@ public class InterfaceAdmin {
     }
     
     private void baixaEstoque() {
-        mostrarEstoque();
         System.out.println("");
-        System.out.println("PRODUTOS VENDIDOS: ");
+        mostrarEstoque();        
+        System.out.println("");
         
-//        for (Produto p : controlador.buscarProdutosPedido()) {
-//            System.out.println("PRODUTO: " + p.getNome() + " QUANTIDADE: " + p.getQuantidade());
-//        }
-        
-        controlador.getPedidoDao().mostarProdutos();
+        System.out.println("PRODUTOS VENDIDOS: ");        
+        controlador.mostrarProdutosVendidos();
+                
+//        controlador.getPedidoDao().mostarProdutos();
         System.out.println("DESEJA REALIZAR BAIXA DE ESTOQUE?");
         System.out.println("1. Sim");
         System.out.println("2. Não");
@@ -179,6 +183,7 @@ public class InterfaceAdmin {
         int opcao = scanner.nextInt();
         
         if (opcao == 1) {
+            controlador.baixarEstoque();
 //            for (Produto p : controlador.buscarProdutosPedido()) {
 //                for (Produto p2 : controlador.buscarProdutos()) {
 //                    if (p.getNome().equals(p2.getNome())) {
@@ -195,11 +200,14 @@ public class InterfaceAdmin {
     private void mostrarEstoque() {
         System.out.println("ESTOQUE ATUAL: ");
         System.out.println("");        
-        for (Produto p : controlador.buscarProdutos()) {
-            System.out.println("PRODUTO: " + p.getNome() + " QUANTIDADE: " + p.getQuantidade());
+        for (Produto p : controlador.getProdutos()) {
+            System.out.println("PRODUTO: " + p.getNome() + " ESTOQUE: " + p.getEstoque());
         }
     }
 
+    public static void mostrarProdutosVendidos(Produto p) {
+       System.out.println("PRODUTO: " + p.getNome() + " QUANTIDADE " + p.getQuantidade());                       
+    }    
     
      public void gerarRelatorio() {
 

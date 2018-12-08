@@ -121,7 +121,7 @@ public class InterfaceAtendente {
                     
                     pd = controlador.fecharPedido(pd, data, metodoPgto, tipoPedido);
                     System.out.println("");
-                    System.out.println("IMPRIMINDO PRODUTO...");
+                    System.out.println("IMPRIMINDO PEDIDO...");
                     System.out.println(controlador.imprimirPedido(pd));
 //                    List<Produto> list = controlador.getPedidoDao().getProdutos();
 //                    Pedido pd = controlador.criarPedido(data, metodoPgto, tipoPedido, list);                            

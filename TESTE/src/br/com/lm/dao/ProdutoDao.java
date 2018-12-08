@@ -7,17 +7,21 @@ import java.util.List;
 public interface ProdutoDao {
 
     public List<Produto> getProdutos();
+   
     public List<Item> getItens();
         
     public List<Item> adicionarItem(Item p);  
     
     public void inicializarProduto();
         
-    public Produto criarProduto(String nome, double preco);    
+    public Produto criarProduto(String nome, double preco, int estoque);    
+    
     public void adicionarProduto(Produto p);
     
-	public Produto buscarProduto(String nome);
+    public Produto buscarProduto(String nome);
 
+    public void setEstoque(int pos, int estoque);
+    
 //	public Produto alterarProduto();
 
 //	public Produto excluirProduto();

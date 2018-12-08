@@ -1,5 +1,6 @@
 package br.com.lm.controlador;
 
+import br.com.lm.Interface.InterfaceAdmin;
 import br.com.lm.dao.ItemDao;
 import br.com.lm.dao.ItemDaoImplement;
 import br.com.lm.dao.PedidoDao;
@@ -41,8 +42,8 @@ public class Controlador {
 
 //PRODUTO======================================
     
-    public String cadastrarProduto(String nome, double preco){            
-       Produto p = produtoDao.criarProduto(nome, preco);       
+    public String cadastrarProduto(String nome, double preco, int estoque){            
+       Produto p = produtoDao.criarProduto(nome, preco, estoque);       
        produtoDao.adicionarProduto(p);
        return p.toString();       
     }     
@@ -77,13 +78,23 @@ public class Controlador {
         return produtoDao;
     }
     
-    public List<Produto> buscarProdutos(){
-        return produtoDao.getProdutos();
-    }
+//    public List<Produto> buscarProdutos(){
+//        return produtoDao.getProdutos();
+//    }
 //=============================================
 
-//ESTOQUE (ITEM) ============================== 
-    
+//ESTOQUE ============================== 
+    public void baixarEstoque() {
+        for (Produto p : pedidoDao.getProdutos()) {
+            for (Produto p2 : produtoDao.getProdutos()) {
+                if (p.getNome().equals(p2.getNome())) {
+                    int estoque = p2.getEstoque() - p.getQuantidade();
+                    int pos = p2.getCodigoProduto() - 1;
+                    produtoDao.setEstoque(pos, estoque);
+                }
+            }
+        } 
+    }
 //    public void listarItens() {
 //        System.out.println(itemDao.getItens().toString());
 //        
@@ -143,13 +154,15 @@ public class Controlador {
         return pd.toString();
     }
     
-
     public PedidoDao getPedidoDao() {
         return pedidoDao;
     }
     
-    public void mostarProdutos() {
-        pedidoDao.mostarProdutos();
+    public void mostrarProdutosVendidos() {
+        for (Produto p: pedidoDao.getProdutos()){
+            InterfaceAdmin.mostrarProdutosVendidos(p);            
+        }
+        
     }
         
 //        public List<Produto> adicionaProdutoPedido (Produto p) {                     
@@ -157,7 +170,7 @@ public class Controlador {
 //             return this.pedidoDao.getProdutos();
 //    }
 //=================================================   
-  
-          
+
+            
     
 }

@@ -13,9 +13,10 @@ public class Produto {
     
 //    private List<Item> itens = new ArrayList();
 
-    public Produto(String nome, double preco) {
+    public Produto(String nome, double preco, int estoque) {
         this.nome = nome;
         this.preco = preco;
+        this.estoque = estoque;
     }
 
     public Produto(Produto p){
@@ -27,8 +28,6 @@ public class Produto {
     public Produto() {
         
     }
-
-
     
     public int getCodigoProduto() {
         return codigoProduto;
@@ -84,8 +83,9 @@ public class Produto {
 //    }
 
     @Override
-    public String toString() {
-        return "Produto{" + "codigoProduto=" + codigoProduto + ", nome=" + nome + ", preco=" + preco + ", quantidade=" + quantidade + '}';
+    public String toString() {   
+        
+        return "Produto{" + "codigoProduto=" + codigoProduto + ", nome=" + nome + ", preço= R$" + preco + ", Estoque=" + estoque + '}';
     }
     
     
