@@ -7,6 +7,7 @@ import java.util.List;
 
 public class ProdutoDaoImplement implements ProdutoDao {
 
+    int codigoProduto = 1;
     private static List<Produto> produtos = new ArrayList<>();
     private final List<Item> itens = new ArrayList<>();
     
@@ -38,6 +39,8 @@ public class ProdutoDaoImplement implements ProdutoDao {
     @Override
     public Produto criarProduto(String nome, double preco) {          
         Produto p = new Produto(nome, preco);
+        p.setCodigoProduto(codigoProduto);
+        codigoProduto++;
         return p;        
     }
    

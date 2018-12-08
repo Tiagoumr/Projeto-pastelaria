@@ -1,6 +1,7 @@
 package br.com.lm.Interface;
 import br.com.lm.controlador.Controlador;
 import br.com.lm.modelo.Item;
+import br.com.lm.modelo.Produto;
 import java.util.List;
 import java.util.Scanner;
 
@@ -39,9 +40,9 @@ public class InterfaceAdmin {
         System.out.println("MENU GERENCIAR PRODUTO");
         System.out.println("");
         System.out.println("1. Cadastrar Produto");
-        System.out.println("2. Listar ");   //Não implementado
-        System.out.println("3. Alterar");   //Não implementado
-        System.out.println("4. Excluir");   //Não implementado    
+        System.out.println("2. Listar ");  
+        System.out.println("3. Alterar[VERSÃO PREMIUM]");   //Não implementado
+        System.out.println("4. Excluir [VERSÃO PREMUM]");   //Não implementado    
 		return scanner.nextInt();
     }    
     
@@ -49,6 +50,7 @@ public class InterfaceAdmin {
         System.out.println("MENU GERENCIAR ESTOQUE");
         System.out.println("");
         System.out.println("1. GERAR NOTA DE COMPRA");
+        System.out.println("2. BAIXA DE ESTOQUE");
         System.out.println("2. MOSTRAR ESTOQUE ");   
 //        System.out.println("3. Alterar");   
 //        System.out.println("4. Exlcuir");   //Não implementado
@@ -127,21 +129,63 @@ public class InterfaceAdmin {
             opcao2 = menuGerenciarEstoque();
             switch (opcao2){
                 case 1:
-                    //controlador.cadastrarItem();
+                    gerarNotaCompra();
                     break;
                 case 2:
-                    //controlador.listarItens();
+                    baixaEstoque();
                     break;
                 case 3:
-                    //controlador.alterarItem();
+
                     break;
                 case 4:
-                    //controlador.excluirItem();
+
                     break;
             }
         } while (opcao2 != 0);
 }
         
+    private void gerarNotaCompra() {
+    }
+    
+    private void baixaEstoque() {
+        mostrarEstoque();
+        System.out.println("");
+        System.out.println("PRODUTOS VENDIDOS: ");
+        
+//        for (Produto p : controlador.buscarProdutosPedido()) {
+//            System.out.println("PRODUTO: " + p.getNome() + " QUANTIDADE: " + p.getQuantidade());
+//        }
+        
+        controlador.getPedidoDao().mostarProdutos();
+        System.out.println("DESEJA REALIZAR BAIXA DE ESTOQUE?");
+        System.out.println("1. Sim");
+        System.out.println("2. Não");
+        System.out.println("Digite a opção: ");
+        int opcao = scanner.nextInt();
+        
+        if (opcao == 1) {
+//            for (Produto p : controlador.buscarProdutosPedido()) {
+//                for (Produto p2 : controlador.buscarProdutos()) {
+//                    if (p.getNome().equals(p2.getNome())) {
+//                        int quantidade = p2.getQuantidade() - p.getQuantidade();
+//                        p2.setQuantidade(quantidade);
+//                    }
+//                }
+//            }
+        } else {
+            System.out.println("-FINALIZADO-");
+        }
+    }
+    
+    private void mostrarEstoque() {
+        System.out.println("ESTOQUE ATUAL: ");
+        System.out.println("");        
+        for (Produto p : controlador.buscarProdutos()) {
+            System.out.println("PRODUTO: " + p.getNome() + " QUANTIDADE: " + p.getQuantidade());
+        }
+    }
+
+    
      public void gerarRelatorio() {
 
 	}    
@@ -184,7 +228,5 @@ public class InterfaceAdmin {
                     break;
             }
         } while (opcao != 0);
-    }    
-}
-    
-	
+    }
+}    

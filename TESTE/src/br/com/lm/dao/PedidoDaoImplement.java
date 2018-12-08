@@ -8,7 +8,7 @@ import java.util.List;
 public class PedidoDaoImplement implements PedidoDao {
     
 //    private List<Pedido> pedidos = new ArrayList<>();
-    private List<Produto> produtos = new ArrayList<>();
+    private final List<Produto> produtos = new ArrayList<>();
 
 //    @Override
 //    public List<Pedido> getPedidos() {
@@ -17,6 +17,7 @@ public class PedidoDaoImplement implements PedidoDao {
 
     @Override
     public List<Produto> getProdutos() {
+        System.out.println("teste");
         return produtos;
     }
     
@@ -44,6 +45,14 @@ public class PedidoDaoImplement implements PedidoDao {
         System.out.println(pd.toString()); //teste
         pd.getProdutos().add(p);
         System.out.println(pd.toString()); //teste
+        produtos.add(p);
         return pd;
     }    
+    
+    @Override
+    public void mostarProdutos() {
+            for (Produto p : produtos) {
+            System.out.println("PRODUTO: " + p.getNome() + " QUANTIDADE: " + p.getQuantidade());
+        }
+    }
 }
