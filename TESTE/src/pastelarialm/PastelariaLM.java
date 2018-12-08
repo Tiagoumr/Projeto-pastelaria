@@ -23,8 +23,13 @@ public class PastelariaLM {
         
 //        TipoPedido();
         oi;
+        TIAGOteste
         InterfaceTexto interfaceTexto = new InterfaceTexto();
         interfaceTexto.iniciar();
     }   
+    dasdsa
+    d
+    asd
+    sad
 }
      
