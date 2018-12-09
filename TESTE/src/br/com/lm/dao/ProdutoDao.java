@@ -7,6 +7,12 @@ import java.util.List;
 public interface ProdutoDao {
 
     public List<Produto> getProdutos();
+    
+    public List<Produto> getFaltaProdutos();
+    
+    public void zerarFaltaProdutos();
+    
+    public void adicionarFaltaProdutos(Produto p);
    
     public List<Item> getItens();
         
@@ -14,7 +20,7 @@ public interface ProdutoDao {
     
     public void inicializarProduto();
         
-    public Produto criarProduto(String nome, double preco, int estoque);    
+    public Produto criarProduto(String nome, double preco, int estoque, int estoqueMin);    
     
     public void adicionarProduto(Produto p);
     

@@ -10,24 +10,26 @@ public class ProdutoDaoImplement implements ProdutoDao {
     private static int codigoProduto = 1;
     private static List<Produto> produtos = new ArrayList<>();
     private final List<Item> itens = new ArrayList<>();
+    private static List<Produto> faltaProdutos = new ArrayList<>();
     
     @Override
     public void inicializarProduto(){
-        Produto p = criarProduto("Carne", 3.00, 100);
+                                //nome, preco, estoque, qtdMin
+        Produto p = criarProduto("Carne", 3.00, 100, 50);
         adicionarProduto(p);
 //            Produto p = new Produto("Carne", 3.00);
 //            p.setNome("Carne");
 //            p.setPreco(3.00);            
 //            this.produtos.add(p);
         
-        p = criarProduto("Queijo", 4.00, 100);
+        p = criarProduto("Queijo", 4.00, 100, 50);
         adicionarProduto(p);
 //            p = new Produto("Pastel de Queijo", 4.00);
 //            p.setNome("Pastel de Queijo");
 //            p.setPreco(4.00);
 //            this.produtos.add(p);
         
-        p = criarProduto("PresuntoQueijo", 5.00, 50);
+        p = criarProduto("PresuntoQueijo", 5.00, 50, 25);
         adicionarProduto(p);    
 //            p = new Produto("Pastel de presunto e Queijo", 5.00);
 //            p.setNome("Pastel de presunto e Queijo");
@@ -37,8 +39,8 @@ public class ProdutoDaoImplement implements ProdutoDao {
         } 
 
     @Override
-    public Produto criarProduto(String nome, double preco, int estoque) {          
-        Produto p = new Produto(nome, preco, estoque);
+    public Produto criarProduto(String nome, double preco, int estoque, int estoqueMin) {          
+        Produto p = new Produto(nome, preco, estoque, estoqueMin);
         p.setCodigoProduto(codigoProduto);
         codigoProduto++;
         return p;        
@@ -65,6 +67,21 @@ public class ProdutoDaoImplement implements ProdutoDao {
     @Override
     public List<Produto> getProdutos() {
         return produtos;
+    }
+    
+    @Override
+    public List<Produto> getFaltaProdutos() {
+        return faltaProdutos;
+    }
+    
+    @Override
+    public void zerarFaltaProdutos(){
+        faltaProdutos.clear();
+    }
+    
+    @Override
+    public void adicionarFaltaProdutos(Produto p){
+        faltaProdutos.add(p);
     }
     
     @Override

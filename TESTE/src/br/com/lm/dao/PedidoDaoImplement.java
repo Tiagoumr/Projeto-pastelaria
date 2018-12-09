@@ -16,8 +16,7 @@ public class PedidoDaoImplement implements PedidoDao {
 //    }
 
     @Override
-    public List<Produto> getProdutos() {
-        System.out.println("teste");
+    public List<Produto> getProdutos() {        
         return produtos;
     }
     

@@ -42,8 +42,8 @@ public class Controlador {
 
 //PRODUTO======================================
     
-    public String cadastrarProduto(String nome, double preco, int estoque){            
-       Produto p = produtoDao.criarProduto(nome, preco, estoque);       
+    public String cadastrarProduto(String nome, double preco, int estoque, int EstoqueMin){            
+       Produto p = produtoDao.criarProduto(nome, preco, estoque, EstoqueMin);       
        produtoDao.adicionarProduto(p);
        return p.toString();       
     }     
@@ -72,11 +72,7 @@ public class Controlador {
         for (Produto p: getProdutos()){
             System.out.println(p.getNome());
         }
-    }
-
-    public ProdutoDao getProdutoDao() {
-        return produtoDao;
-    }
+    }      
     
 //    public List<Produto> buscarProdutos(){
 //        return produtoDao.getProdutos();
@@ -95,6 +91,39 @@ public class Controlador {
             }
         } 
     }
+    
+    public void atualizarEstoque(Produto p, int quantidade) {
+        for ( Produto p2: produtoDao.getProdutos()){
+            if (p.getNome().equals(p2.getNome())){
+                int pos = p2.getCodigoProduto() - 1;                
+                int estoque = p2.getEstoque();
+                estoque = estoque + quantidade;
+                produtoDao.setEstoque(pos, estoque);
+            }            
+        }
+    }
+    
+    public void atualizarEmFalta(){        
+        produtoDao.zerarFaltaProdutos();        
+        for (Produto p : getProdutos()){
+            if (p.getEstoque() <= p.getEstoqueMin()){
+                produtoDao.adicionarFaltaProdutos(p);
+            }
+        }            
+    }
+    
+    public List<Produto> getFaltaProdutos(){
+        return produtoDao.getFaltaProdutos();
+    }
+    
+//    public Produto mostrarEmFalta() {
+//        for (Produto p: produtoDao.getProdutos()){
+//            if (p.getEstoque() <= p.getEstoqueMin()){
+//                return p;
+//            }            
+//        }
+//        return null;
+//    }
 //    public void listarItens() {
 //        System.out.println(itemDao.getItens().toString());
 //        
@@ -153,28 +182,29 @@ public class Controlador {
 //    public String imprimirPedido(Pedido pd){
 //        return pd.toString();
 //    }
-    
-        public void imprimirPedido(Pedido pd){
-        pd.imprimir();
+    public List<Produto> getProdutosPedido(){
+        return pedidoDao.getProdutos();
+    }
+       
+    public void imprimirPedido(Pedido pd){
+    pd.imprimir();
     }
     
     public PedidoDao getPedidoDao() {
         return pedidoDao;
     }
     
-    public void mostrarProdutosVendidos() {
-        for (Produto p: pedidoDao.getProdutos()){
-            InterfaceAdmin.mostrarProdutosVendidos(p);            
-        }
-        
-    }
+//    public void mostrarProdutosVendidos() {
+//        for (Produto p: pedidoDao.getProdutos()){
+//            InterfaceAdmin.mostrarProdutosVendidos(p);            
+//        }        
+//    }
         
 //        public List<Produto> adicionaProdutoPedido (Produto p) {                     
 //             this.pedidoDao.getProdutos().add(p);  
 //             return this.pedidoDao.getProdutos();
 //    }
 //=================================================   
-
             
     
 }

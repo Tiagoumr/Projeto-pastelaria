@@ -23,7 +23,7 @@ public class InterfaceAtendente {
         System.out.println("-=-=-=-=-=-MENU ATENDENTE-=-=-=-=-=-");
         System.out.println("");
         System.out.println("0. Sair");
-        System.out.println("1. Gerenciar Cliente");
+        System.out.println("1. Gerenciar Cliente [VERSÃO PREMIUM]");
         System.out.println("2. Gerenciar Pedido");       
         System.out.println("");
         System.out.print("Digite a opcao: ");
@@ -34,10 +34,10 @@ public class InterfaceAtendente {
         System.out.println("MENU GERENCIAR CLIENTE");
         System.out.println("");
         System.out.println("0. Sair");
-        System.out.println("1. Cadastrar"); //ENUM
-        System.out.println("2. Listar ");   //NÃO IMPLEMENTADO
-        System.out.println("3. Alterar");   //NÃO IMPLEMENTADO
-        System.out.println("4. Excluir");   //NÃO IMPLEMENTADO
+        System.out.println("1. Cadastrar [VERSÃO PREMIUM]"); //NÃO IMPLEMENTADO
+        System.out.println("2. Listar [VERSÃO PREMIUM]");   //NÃO IMPLEMENTADO
+        System.out.println("3. Alterar [VERSÃO PREMIUM]");   //NÃO IMPLEMENTADO
+        System.out.println("4. Excluir [VERSÃO PREMIUM]");   //NÃO IMPLEMENTADO
 		return scanner.nextInt();
     }
    
@@ -47,9 +47,9 @@ public class InterfaceAtendente {
         System.out.println("");
         System.out.println("0. Sair");
         System.out.println("1. Novo Pedido");
-        System.out.println("2. Listar "); // Veremos
-        System.out.println("3. Alterar"); // Não implementado
-        System.out.println("4. Excluir"); // Não implementado
+        System.out.println("2. Listar [VERSÃO PREMIUM]"); // Veremos
+        System.out.println("3. Alterar [VERSÃO PREMIUM]"); // Não implementado
+        System.out.println("4. Excluir [VERSÃO PREMIUM]"); // Não implementado
         System.out.println("");
         System.out.print("Digite a opção: ");
         return scanner.nextInt();
@@ -60,12 +60,12 @@ public class InterfaceAtendente {
 //======= IMPLEMENTAÇÃO ======= IMPLEMENTAÇÃO ======= IMPLEMENTAÇÃO 
 
       
-	public void novoPedido (){                      
+	public void novoPedido (){
             cod++;
             System.out.println("");
             System.out.println("-=-=-=-=-PEDIDO Nº " + cod + "-=-=-=-=-");
-            System.out.println("" );                            
-            System.out.println("Selecione o Tipo de Pedido: ");            
+            System.out.println("" );
+            System.out.println("Selecione o Tipo de Pedido: ");
             System.out.println("1. " + TipoPedido.DELIVERY);
             System.out.println("2. " + TipoPedido.ENCOMENDA);
             System.out.println("3. " + TipoPedido.BALCAO);
@@ -74,7 +74,7 @@ public class InterfaceAtendente {
             int opcao;
             opcao = scanner.nextInt();
 
-//        Pedido pd = new Pedido();        
+//        Pedido pd = new Pedido();
         Pedido pd = controlador.criarPedido();
         
         do {
@@ -85,12 +85,12 @@ public class InterfaceAtendente {
                     break;
                 case 3:                     
                     while (opcao != 0) {
-                        System.out.println("");                        
+                        System.out.println("");
                         System.out.println("PRODUTOS DISPONÍVEIS: ");
-                        controlador.listarNomeProdutos();                        
+                        controlador.listarNomeProdutos();
                         System.out.println("");
                         System.out.print("Digite o nome do produto: ");
-                        nome = scanner.next();                        
+                        nome = scanner.next();
                         Produto p = controlador.buscarProduto(nome);
                         p = new Produto(p);
 //                        p.setNome("teste");
@@ -129,7 +129,7 @@ public class InterfaceAtendente {
 //                    List<Produto> list = controlador.getPedidoDao().getProdutos();
 //                    Pedido pd = controlador.criarPedido(data, metodoPgto, tipoPedido, list);                            
                             
-                    System.out.println("TESTE" + controlador.getPedidoDao().getProdutos().toString());
+//                    System.out.println("TESTE" + controlador.getPedidoDao().getProdutos().toString());
                     break;                         
             }
         }   while (opcao !=0);   

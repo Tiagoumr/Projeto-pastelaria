@@ -21,7 +21,7 @@ public class InterfaceTexto {
         System.out.println("");
         System.out.println("=-=-=-=-=-=MENU PRINCIPAL=-=-=-=-=-=");
         System.out.println("");
-        System.out.println("0. Sair");
+        System.out.println("0. SAIR");
         System.out.println("1. ADMINISTRADOR");
         System.out.println("2. ATENDENTE");
         System.out.println("");

@@ -10,13 +10,15 @@ public class Produto {
     private double preco;    
     private int estoque;
     private int quantidade;
+    private int estoqueMin;
     
 //    private List<Item> itens = new ArrayList();
 
-    public Produto(String nome, double preco, int estoque) {
+    public Produto(String nome, double preco, int estoque, int estoqueMin) {
         this.nome = nome;
         this.preco = preco;
         this.estoque = estoque;
+        this.estoqueMin = estoqueMin;
     }
 
     public Produto(Produto p){
@@ -69,6 +71,14 @@ public class Produto {
         this.quantidade = quantidade;
     }
 
+    public int getEstoqueMin() {
+        return estoqueMin;
+    }
+
+    public void setEstoqueMin(int estoqueMin) {
+        this.estoqueMin = estoqueMin;
+    }    
+    
 //    public List<Item> getItens() {
 //        return itens;
 //    }
