@@ -94,5 +94,23 @@ public class Pedido {
     @Override
     public String toString() {
         return "Pedido{" + "codigoPedido=" + codigoPedido + ", data=" + data + ", valorTotal=" + valorTotal + ", metodoPgto=" + metodoPgto + ", tipoPedido=" + tipoPedido + ", cliente=" + cliente + ", produtos=" + produtos + '}';
-    }       
+    }
+    
+    public void imprimir(){
+        System.out.println("+----------- PASTELARIA LM  PEDIDO Nº " + codigoPedido + " -----------+");
+        if (cliente == null) {
+            System.out.println("| Cliente: Consumidor Não Identificado             |");
+        } else {
+            System.out.print(cliente.toString());
+        }
+            
+        System.out.println("| Produtos:                                        |");
+        System.out.println("| QTDE |      NOME         | VR UNIT |   VR TOTAL  |");
+        for (Produto p : produtos) {
+            p.imprimirProduto();
+        }
+        System.out.println("|                                                  |");
+        System.out.println("|            Agradecemos a preferência!            |");
+        System.out.println("+--------------------------------------------------+");
+    }
 }

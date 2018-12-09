@@ -21,6 +21,7 @@ public class InterfaceAtendente {
     public int menu() {        
         System.out.println("");
         System.out.println("-=-=-=-=-=-MENU ATENDENTE-=-=-=-=-=-");
+        System.out.println("");
         System.out.println("0. Sair");
         System.out.println("1. Gerenciar Cliente");
         System.out.println("2. Gerenciar Pedido");       
@@ -122,7 +123,9 @@ public class InterfaceAtendente {
                     pd = controlador.fecharPedido(pd, data, metodoPgto, tipoPedido);
                     System.out.println("");
                     System.out.println("IMPRIMINDO PEDIDO...");
-                    System.out.println(controlador.imprimirPedido(pd));
+                    System.out.println("");
+//                    System.out.println(controlador.imprimirPedido(pd));
+                    controlador.imprimirPedido(pd);
 //                    List<Produto> list = controlador.getPedidoDao().getProdutos();
 //                    Pedido pd = controlador.criarPedido(data, metodoPgto, tipoPedido, list);                            
                             

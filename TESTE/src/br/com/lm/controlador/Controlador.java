@@ -150,8 +150,12 @@ public class Controlador {
         return pd;                
     }
     
-    public String imprimirPedido(Pedido pd){
-        return pd.toString();
+//    public String imprimirPedido(Pedido pd){
+//        return pd.toString();
+//    }
+    
+        public void imprimirPedido(Pedido pd){
+        pd.imprimir();
     }
     
     public PedidoDao getPedidoDao() {

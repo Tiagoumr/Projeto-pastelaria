@@ -96,6 +96,7 @@ public class InterfaceAdmin {
                 case 1:
                     System.out.println("");
                     System.out.println("-=-=-=-CADASTRAR NOVO PRODUTO-=-=-=-" );
+                    System.out.println("");
                     System.out.print("Nome do produto: " );
                     nome = scanner.next();                    
                     System.out.print("Preço: " );

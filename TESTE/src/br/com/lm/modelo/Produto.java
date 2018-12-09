@@ -88,5 +88,9 @@ public class Produto {
         return "Produto{" + "codigoProduto=" + codigoProduto + ", nome=" + nome + ", preço= R$" + preco + ", Estoque=" + estoque + '}';
     }
     
+    public void imprimirProduto(){
+        System.out.printf("|  %2d  |  %-16s |  %2.2f   |    %02.2f     |%n", quantidade, nome, preco, quantidade*preco);
+    }
+    
     
 }
