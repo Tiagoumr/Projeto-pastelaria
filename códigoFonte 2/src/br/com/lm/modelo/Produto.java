@@ -99,7 +99,7 @@ public class Produto {
     }
     
     public void imprimirProduto(){
-        System.out.printf("|  %2d  |  %-16s |  %2.2f   |    %02.2f     |%n", quantidade, nome, preco, quantidade*preco);
+        System.out.printf("|  %2d  |  %-16s |  %2.2f   |    %3.2f     |%n", quantidade, nome, preco, quantidade*preco);
     }
     
     

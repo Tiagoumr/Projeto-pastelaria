@@ -102,8 +102,8 @@ public class Pedido {
             System.out.println("| Cliente: Consumidor Não Identificado             |");
         } else {
             System.out.print(cliente.toString());
-        }
-            
+        }                                                                      
+        System.out.printf("| Método de pagamento: %-16s            |%n", metodoPgto);    
         System.out.println("| Produtos:                                        |");
         System.out.println("| QTDE |      NOME         | VR UNIT |   VR TOTAL  |");
         for (Produto p : produtos) {
