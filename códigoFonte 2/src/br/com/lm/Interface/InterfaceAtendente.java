@@ -14,7 +14,7 @@ public class InterfaceAtendente {
     Scanner scanner = new Scanner(System.in);
     Controlador controlador = new Controlador();
     String nome;
-    private static int cod;
+    
         	
 //========== MENUS ========== MENUS ========== MENUS ========== MENUS
     
@@ -60,14 +60,19 @@ public class InterfaceAtendente {
 //======= IMPLEMENTAÇÃO ======= IMPLEMENTAÇÃO ======= IMPLEMENTAÇÃO 
 
       
+        public void gerenciarCliente(){
+            
+        }
+    
 	public void novoPedido (){
-            cod++;
+            Pedido pd = controlador.criarPedido();
+            
             System.out.println("");
-            System.out.println("-=-=-=-=-PEDIDO Nº " + cod + "-=-=-=-=-");
+            System.out.println("-=-=-=-=-PEDIDO Nº " + pd.getCodigoPedido() + "-=-=-=-=-");
             System.out.println("" );
             System.out.println("Selecione o Tipo de Pedido: ");
-            System.out.println("1. " + TipoPedido.DELIVERY);
-            System.out.println("2. " + TipoPedido.ENCOMENDA);
+            System.out.println("1. " + TipoPedido.DELIVERY + "[VERSÃO PREMIUM]"); 
+            System.out.println("2. " + TipoPedido.ENCOMENDA + "[VERSÃO PREMIUM]");
             System.out.println("3. " + TipoPedido.BALCAO);
             System.out.println("");
             System.out.print("Digite a opção: ");
@@ -75,7 +80,7 @@ public class InterfaceAtendente {
             opcao = scanner.nextInt();
 
 //        Pedido pd = new Pedido();
-        Pedido pd = controlador.criarPedido();
+        
         
         do {
            switch (opcao) {
@@ -165,7 +170,7 @@ public class InterfaceAtendente {
             opcao = menu();
             switch (opcao) {
                 case 1:
-                   // gerenciarCliente();
+                    gerenciarCliente();
                     break;
                 case 2:
                     gerenciarPedido();
