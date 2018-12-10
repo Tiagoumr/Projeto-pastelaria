@@ -74,7 +74,7 @@ public class ProdutoDaoImplement implements ProdutoDao {
         return faltaProdutos;
     }
     
-    @Override
+        @Override
     public void zerarFaltaProdutos(){
         faltaProdutos.clear();
     }

@@ -6,15 +6,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PedidoDaoImplement implements PedidoDao {
-    
-//    private List<Pedido> pedidos = new ArrayList<>();
+    private static int codigoPedido = 1;
+//    private List<Pedido> pedidos = new ArrayList<>();    
     private static List<Produto> produtos = new ArrayList<>();
 
 //    @Override
 //    public List<Pedido> getPedidos() {
 //        return pedidos;
 //    }
-
+        
     @Override
     public List<Produto> getProdutos() {        
         return produtos;
@@ -27,8 +27,10 @@ public class PedidoDaoImplement implements PedidoDao {
 //	}
     
     @Override
-    public Pedido criarPedido(){        
+    public Pedido criarPedido(){               
         Pedido pedido = new Pedido();
+        pedido.setCodigoPedido(codigoPedido);
+        codigoPedido++;
         return pedido;
     }
     
